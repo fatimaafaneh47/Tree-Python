@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}" >   
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+    <div class="show">
+    <h1>Arbortray</h1>
+    <p>a site ro track randomly planted trees</p>
+    </div>
+    <div class="left">
+    <a href="/user/account">My Trees</a>
+    <h2>Welcome {{user.first_name}}</h2>
+    <button><a href="/dashboard"> Dashboard</a></button> <button><a href="/"> Log Out</a></button>
+    </div>
+    </div>
+
+    <ul class="messages">
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+    </ul>
+    <div class="forming">
+        <h1>Arbitiraly plant a tree</h1>
+    <form action="/addtree" method="POST">
+        {% csrf_token %}
+    <p>Species</p>
+    <input type="text" name="species">
+    <p>Location</p>
+    <input type="text" name="location">
+    <p>Reason</p>
+    <input type="text" name="reason">
+    <p>Date Planted</p>
+    <input type="date" name="date">
+    <br>
+    <br>
+    <button type="submit ">Plant</button>
+</form>
+</div>
+</body>
+</html>

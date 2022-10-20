@@ -1,0 +1,24 @@
+.main{
+    display: flex;
+    justify-content: space-around;
+}
+button{
+    background-color: white;
+}
+.mytable{
+    width:500px;
+    height:100px;
+    margin:auto;
+}
+.main{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 4%;
+}
+.forming{
+    margin: auto;
+    width:40%;
+}
+.info{
+    font-size: 26px;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}" >   
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+    <div>
+    <h1>Arbortray</h1>
+    <p>a site ro track randomly planted trees</p>
+    </div>
+    <div>
+    <a href="/user/account">My Trees</a>
+    <h2>Welcome {{user.first_name}}</h2>
+    <button><a href="/dashboard"> Dashboard</a></button> <button><a href="/"> Log Out</a></button>
+</div>
+    </div>
+    <div class="forming">
+    <h1>Replant Your tree</h1>
+    <form action="/update/{{tree.id}}" method="POST">
+        {% csrf_token %}
+    <p>Species</p>
+    <input type="text" name="species" value="{{tree.species}}">
+    <p>Location</p>
+    <input type="text" name="location" value={{tree.location}}>
+    <p>Reason</p>
+    <input type="text" name="reason" value={{tree.reason}}>
+    <p>Date Planted</p>
+    <input type="date" name="date" value="{{tree.created_at|date:'Y-m-d'}}">
+    <br>
+    <br>
+    <button type="submit ">Update</button>
+</form>
+</div>
+</body>
+</html>

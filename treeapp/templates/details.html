@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}" >   
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+        <div>
+    <h1>Arbitary</h1>
+    <p>a site ro track randomly planted trees</p>
+</div>
+<div>
+<a href="/user/account">My Trees</a> <h2>Welcome {{user.first_name}}</h2>
+<button><a href="/dashboard"> Dashboard</a></button> <button><a href="/"> Log Out</a></button>
+</div>
+</div>
+    <div class="forming info">
+    <p>{{tree.species}} Planted_By {{tree.planted_by.first_name}}</p>
+    <p>Where: {{tree.location}}</p>
+    <p>When: {{tree.planted_at}}</p>
+    <p>Reason: {{tree.reason}}</p>
+</div>
+</body>
+</html>
